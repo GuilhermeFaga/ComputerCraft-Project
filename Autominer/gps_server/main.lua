@@ -1,7 +1,9 @@
 rednet.open("back")
-rednet.host("gps_server")
+rednet.host("gps_server", "master")
 
 local PATH = "data.txt"
+
+
 function main()
   print("Listening for GPS data on protocol 'gps_server'...")
   while true do
@@ -37,6 +39,17 @@ function main()
       file.writeLine(key.."="..value)
     end
   end
+end
+
+function split (inputstr, sep)
+  if sep == nil then
+     sep = "%s"
+  end
+  local t={}
+  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+     table.insert(t, str)
+  end
+  return t
 end
 
 main{...}
