@@ -9,9 +9,10 @@ local turtle = require "turtle"
 -- mines blocks whose names have these following strings in them
 local TARGETS = {"diamond", "redstone"}
 local DEFAULT_RADIUS = 8
-local CHEST_SLOT = 14
-local FUEL_SLOT = 15
 local GEOSCAN_SLOT = 16
+local FUEL_SLOT = 15
+local CHEST_SLOT = 14
+local FREE_SLOT = 13
 
 function main(tArgs)
   if #tArgs==0 then
@@ -57,6 +58,12 @@ function checkFuel()
     turtle.suckDown(10)
     turtle.refuel()
     turtle.storeSlot(FUEL_SLOT)
+  end
+end
+
+function checkInv()
+  if turtle.getItemCount(FREE_SLOT) != 0 then
+    turtle.storeItems(CHEST_SLOT)
   end
 end
 

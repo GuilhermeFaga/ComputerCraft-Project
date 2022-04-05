@@ -86,6 +86,14 @@ function turtle.storeSlot(slot)
   turtle.down()
 end
 
+function turtle.storeItems(slot, free_slot)
+  turtle.useSlot(slot)
+  for i=1,free_slot do
+    turtle.select(i)
+    turtle.dropDown()
+  end
+end
+
 function turtle.forward()
   if slurtle.forward() then
     local func = DIR_TO_ATTR[turtle.dir]
