@@ -12,7 +12,8 @@ local DEFAULT_RADIUS = 8
 local GEOSCAN_SLOT = 16
 local FUEL_SLOT = 15
 local CHEST_SLOT = 14
-local FREE_SLOT = 13
+local GPS_SLOT = 13
+local FREE_SLOT = 12
 
 function main(tArgs)
   if #tArgs==0 then
@@ -65,6 +66,12 @@ function checkInv()
   if not (turtle.getItemCount(FREE_SLOT) == 0) then
     turtle.storeItems(CHEST_SLOT, FREE_SLOT)
   end
+end
+
+function sendLocation()
+  turtle.useSlot(GPS_SLOT)
+  os.sleep(2)
+  turtle.storeSlot(GPS_SLOT)
 end
 
 function scanBlocks()
