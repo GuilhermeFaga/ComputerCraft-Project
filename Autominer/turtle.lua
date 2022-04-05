@@ -76,6 +76,7 @@ function turtle.useSlot(slot)
   turtle.select(slot)
   turtle.up_or_dig()
   turtle.placeDown()
+  os.sleep(0.5)
   return peripheral.wrap("bottom")
 end
 
