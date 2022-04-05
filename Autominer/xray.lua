@@ -32,6 +32,7 @@ function main(tArgs)
   for _=1,dist do
     tunnel()
     scanArea()
+    sendLocation()
   end
 end
 
@@ -69,7 +70,8 @@ function checkInv()
 end
 
 function sendLocation()
-  turtle.useSlot(GPS_SLOT)
+  local gps_turtle = turtle.useSlot(GPS_SLOT)
+  gps_turtle.turnOn()
   os.sleep(2)
   turtle.storeSlot(GPS_SLOT)
 end
