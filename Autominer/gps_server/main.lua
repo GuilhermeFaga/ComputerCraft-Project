@@ -1,7 +1,7 @@
 rednet.open("back")
 rednet.host("gps_server", "master")
 
-local PATH = "logs/"
+local PATH = "coords/"
 
 function main()
   print("Listening for GPS data on protocol 'gps_server'...")
@@ -10,10 +10,9 @@ function main()
     if protocol == "gps_server" then
       
       local file = fs.open(PATH..senderId..".txt", "w")
-      print("Saving GPS data for sender "..senderId.."...")
+      print("Update from "..senderId.." at "..message)
       file.writeLine(message)
       file.close()
-      print("Done.")
     end
   end
 end
