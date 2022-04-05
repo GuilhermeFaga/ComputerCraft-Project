@@ -28,21 +28,22 @@ function main(tArgs)
   local dist = tArgs[2] or 1
 
   turtle.reset(x,y,z,dir)
-  checkFuel()
-  scanArea()
   if dist == "-1" then
     while true do
-      tunnel()
-      scanArea()
-      sendLocation()
+      loop()
     end
   else
     for _=1,dist do
-      tunnel()
-      scanArea()
-      sendLocation()
+      loop()
     end
   end
+end
+
+function loop()
+  checkFuel()
+  scanArea()
+  tunnel()
+  sendLocation()
 end
 
 function is_target(ore_name)
