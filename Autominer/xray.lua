@@ -28,11 +28,20 @@ function main(tArgs)
   local dist = tArgs[2] or 1
 
   turtle.reset(x,y,z,dir)
+  checkFuel()
   scanArea()
-  for _=1,dist do
-    tunnel()
-    scanArea()
-    sendLocation()
+  if dist == -1 then
+    while true do
+      tunnel()
+      scanArea()
+      sendLocation()
+    end
+  else
+    for _=1,dist do
+      tunnel()
+      scanArea()
+      sendLocation()
+    end
   end
 end
 
@@ -83,11 +92,11 @@ function scanBlocks()
 end
 
 function scanArea()
-  checkInv()
   local tbl = scanBlocks()
   local dir = turtle.dir
   turtle.reset(0,0,0,dir)
   for i,item in pairs(tbl) do
+    checkInv()
     if is_target(item.name) then
       turtle.goTo(item.x,item.y,item.z)
     end
