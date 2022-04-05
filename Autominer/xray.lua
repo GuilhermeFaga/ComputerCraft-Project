@@ -26,8 +26,10 @@ function main(tArgs)
   local dist = tArgs[2] or 1
 
   turtle.reset(x,y,z,dir)
+  scanArea()
   for _=1,dist do
     tunnel()
+    scanArea()
   end
 end
 
@@ -40,7 +42,6 @@ function is_target(ore_name)
   return false
 end
 
-
 function tunnel()
   turtle.digUp()
   for i=1,17 do
@@ -48,16 +49,6 @@ function tunnel()
     turtle.forward()
     turtle.digUp()
   end
-  local tbl = scanBlocks()
-  local dir = turtle.dir
-  turtle.reset(0,0,0,dir)
-  for i,item in pairs(tbl) do
-    if is_target(item.name) then
-      turtle.goTo(item.x,item.y,item.z)
-    end
-  end
-  turtle.goTo(0,0,0)
-  turtle.turnTo(dir)
 end
 
 function checkFuel()
@@ -73,6 +64,19 @@ function scanBlocks()
   local tbl = turtle.useSlot(GEOSCAN_SLOT).scan(DEFAULT_RADIUS)
   turtle.storeSlot(GEOSCAN_SLOT)
   return tbl
+end
+
+function scanArea()
+  local tbl = scanBlocks()
+  local dir = turtle.dir
+  turtle.reset(0,0,0,dir)
+  for i,item in pairs(tbl) do
+    if is_target(item.name) then
+      turtle.goTo(item.x,item.y,item.z)
+    end
+  end
+  turtle.goTo(0,0,0)
+  turtle.turnTo(dir)
 end
 
 main{...}
