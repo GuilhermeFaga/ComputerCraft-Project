@@ -2,23 +2,29 @@
 
 function main(tArgs)
   if #tArgs==0 then
-    print("Usage: git clone <repo>")
-    print("eg. git clone autominer")
+    error("Usage: git clone <repo>")
+    error("eg. git clone autominer")
   end
 
-  local dir = tArgs[1]
+  local func = tArgs[1]
+  local repo = tArgs[2]
+
+  if func == "clone" then
+    clone(repo)
+  end
 end
 
 function clone(repo)
   urls = {
     ["autominer"] = {
-      "https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/xray.lua",
-      "https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/turtle.lua"
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/xray.lua", "xray.lua"},
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/turtle.lua", "turtle.lua"}
     }
   }
 
   for _, i in pairs(urls[repo]) do
-    shell.run("wget", i)
+    shell.run("rm", i[2])
+    shell.run("wget", i[1])
   end
 end
 
