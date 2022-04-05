@@ -15,7 +15,10 @@ function main(tArgs)
 end
 
 function clone(repo)
-  urls = {
+  urls = {,
+    ["git"] = {
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/git.lua", "git.lua"},
+    }
     ["autominer"] = {
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/xray.lua", "xray.lua"},
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/turtle.lua", "turtle.lua"}
