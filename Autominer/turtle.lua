@@ -92,6 +92,7 @@ function turtle.storeItems(slot, free_slot)
     turtle.select(i)
     turtle.dropDown()
   end
+  turtle.storeSlot(slot)
 end
 
 function turtle.forward()

@@ -62,8 +62,8 @@ function checkFuel()
 end
 
 function checkInv()
-  if turtle.getItemCount(FREE_SLOT) != 0 then
-    turtle.storeItems(CHEST_SLOT)
+  if not (turtle.getItemCount(FREE_SLOT) == 0) then
+    turtle.storeItems(CHEST_SLOT, FREE_SLOT)
   end
 end
 
@@ -74,6 +74,7 @@ function scanBlocks()
 end
 
 function scanArea()
+  checkInv()
   local tbl = scanBlocks()
   local dir = turtle.dir
   turtle.reset(0,0,0,dir)
