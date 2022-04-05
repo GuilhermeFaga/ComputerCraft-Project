@@ -30,7 +30,7 @@ function main(tArgs)
   turtle.reset(x,y,z,dir)
   checkFuel()
   scanArea()
-  if dist == -1 then
+  if dist == "-1" then
     while true do
       tunnel()
       scanArea()
