@@ -15,7 +15,7 @@ function main(tArgs)
 end
 
 function clone(repo)
-  urls = {,
+  urls = {
     ["git"] = {
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/git.lua", "git.lua"}
     },
