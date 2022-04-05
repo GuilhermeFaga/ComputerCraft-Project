@@ -17,17 +17,17 @@ end
 function clone(repo)
   urls = {,
     ["git"] = {
-      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/git.lua", "git.lua"},
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/git.lua", "git.lua"}
     }
     ["autominer"] = {
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/xray.lua", "xray.lua"},
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/turtle.lua", "turtle.lua"}
     },
     ["autominer/gps_turtle"] = {
-      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_turtle/startup.lua", "startup.lua"},
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_turtle/startup.lua", "startup.lua"}
     },
     ["autominer/gps_server"] = {
-      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/startup.lua", "startup.lua"},
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/startup.lua", "startup.lua"}
     }
   }
 
