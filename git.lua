@@ -27,7 +27,7 @@ function clone(repo)
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_turtle/startup.lua", "startup.lua"}
     },
     ["autominer/gps_server"] = {
-      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/startup.lua", "startup.lua"}
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/startup.lua", "startup.lua"},
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/main.lua", "main.lua"}
     }
   }
