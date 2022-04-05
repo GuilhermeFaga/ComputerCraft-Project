@@ -7,7 +7,7 @@
 local turtle = require "turtle"
 
 -- mines blocks whose names have these following strings in them
-local TARGETS = {"diamond", "redstone"}
+local TARGETS = {"diamond"}
 local DEFAULT_RADIUS = 8
 local GEOSCAN_SLOT = 16
 local FUEL_SLOT = 15
