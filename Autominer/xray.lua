@@ -9,6 +9,9 @@ local turtle = require "turtle"
 -- mines blocks whose names have these following strings in them
 local TARGETS = {"diamond", "redstone"}
 local DEFAULT_RADIUS = 8
+local CHEST_SLOT = 14
+local FUEL_SLOT = 15
+local GEOSCAN_SLOT = 16
 
 function main(tArgs)
   if #tArgs==0 then
@@ -57,8 +60,18 @@ function tunnel()
   turtle.turnTo(dir)
 end
 
+function checkFuel()
+  if turtle.getFuelLevel() < 100 then
+    turtle.useSlot(FUEL_SLOT)
+    turtle.suckDown(10)
+    turtle.refuel()
+    turtle.storeSlot(FUEL_SLOT)
+  end
+end
+
 function scanBlocks()
-  local tbl = peripheral.wrap("right").scan(DEFAULT_RADIUS)
+  local tbl = turtle.useSlot(GEOSCAN_SLOT).scan(DEFAULT_RADIUS)
+  turtle.storeSlot(GEOSCAN_SLOT)
   return tbl
 end
 

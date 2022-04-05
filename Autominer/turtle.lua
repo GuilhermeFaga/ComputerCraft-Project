@@ -72,6 +72,19 @@ function turtle.show_xyz()
   print("dir: "..tostring(dir))
 end
 
+function turtle.useSlot(slot)
+  turtle.select(slot)
+  turtle.up_or_dig()
+  turtle.placeDown()
+  return peripheral.wrap("bottom")
+end
+
+function turtle.storeSlot(slot)
+  turtle.select(slot)
+  turtle.digDown()
+  turtle.down()
+end
+
 function turtle.forward()
   if slurtle.forward() then
     local func = DIR_TO_ATTR[turtle.dir]
