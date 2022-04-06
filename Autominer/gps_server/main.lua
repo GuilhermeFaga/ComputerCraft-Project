@@ -10,7 +10,7 @@ function main()
     if protocol == "gps_server" then
       
       local file = fs.open(PATH..senderId..".txt", "w")
-      time = textutils.formatTime(os.time("local"))
+      time = textutils.formatTime(os.time("local")-3, true)
       print(time..": ".."sender "..senderId.." at "..message)
       file.writeLine(time..":"..message)
       file.close()

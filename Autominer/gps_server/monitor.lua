@@ -10,15 +10,29 @@ _headers = {
         ["width"] = 5
     },
     {
+        ["key"] = "desc",
+        ["title"] = "Desc",
+        ["width"] = 12
+    },
+    {
         ["key"] = "last_seen",
         ["title"] = "Hora",
-        ["width"] = 10
+        ["width"] = 7
     },
     {
         ["key"] = "coords",
-        ["title"] = "X Y Z",
+        ["title"] = "X   Y   Z",
         ["width"] = 12
     }
+}
+
+_lookup = {
+  ["2"] = {
+    ["desc"] = "Netherite"
+  },
+  ["10"] = {
+    ["desc"] = "Netherite"
+  }
 }
 
 function loop()
@@ -30,7 +44,8 @@ end
 
 function main()
   local display = displayAPI.createDisplay("top")
-  
+  turtles = {}
+
   local files = fs.list("coords")
 
   for _,file in pairs(files) do
@@ -41,15 +56,23 @@ function main()
     arr = split(file, ".")
     id = arr[1]
     arr2 = split(line, ":")
-    last_seen = arr2[1]..":"..arr2[2]
+    last_seen = (tonumber(arr2[1])-3)..":"..arr2[2]
     coords = arr2[3]
 
-    table.insert(turtles, {
+    desc = ""
+    if _lookup[id] ~= nil then
+      desc = _lookup[id]["desc"]
+    end
+
+    tb = {
       ["id"] = id,
-      ["name"] = "Netherite_"..id,
+      ["desc"] = desc,
+      ["name"] = "_"..id,
       ["coords"] = coords,
       ["last_seen"] = last_seen
-    })
+    }
+
+    table.insert(turtles, tb)
   end
 
   display.renderTableArray(turtles, _headers)
