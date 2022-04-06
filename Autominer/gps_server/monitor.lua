@@ -11,8 +11,8 @@ _headers = {
     },
     {
         ["key"] = "desc",
-        ["title"] = "Desc",
-        ["width"] = 12
+        ["title"] = "Description",
+        ["width"] = 13
     },
     {
         ["key"] = "last_seen",
@@ -56,7 +56,7 @@ function main()
     arr = split(file, ".")
     id = arr[1]
     arr2 = split(line, ":")
-    last_seen = (tonumber(arr2[1])-3)..":"..arr2[2]
+    last_seen = arr2[1]..":"..arr2[2]
     coords = arr2[3]
 
     desc = ""
