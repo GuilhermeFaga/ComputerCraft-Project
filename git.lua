@@ -28,7 +28,9 @@ function clone(repo)
     },
     ["autominer/gps_server"] = {
       {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/startup.lua", "startup.lua"},
-      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/main.lua", "main.lua"}
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/main.lua", "main.lua"},
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/display.lua", "display.lua"},
+      {"https://raw.githubusercontent.com/GuilhermeFaga/ComputerCraft-Project/main/Autominer/gps_server/monitor.lua", "monitor.lua"}
     }
   }
 
