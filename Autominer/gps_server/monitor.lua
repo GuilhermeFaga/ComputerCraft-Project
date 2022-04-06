@@ -7,7 +7,7 @@ _headers = {
     {
         ["key"] = "id",
         ["title"] = "ID",
-        ["width"] = 4
+        ["width"] = 5
     },
     {
         ["key"] = "last_seen",
@@ -20,6 +20,13 @@ _headers = {
         ["width"] = 12
     }
 }
+
+function loop()
+  while true do
+    main()
+    os.sleep(60)
+  end
+end
 
 function main()
   local display = displayAPI.createDisplay("top")
@@ -34,8 +41,8 @@ function main()
     arr = split(file, ".")
     id = arr[1]
     arr2 = split(line, ":")
-    last_seen = arr2[1]
-    coords = arr2[2]
+    last_seen = arr2[1]..":"..arr2[2]
+    coords = arr2[3]
 
     table.insert(turtles, {
       ["id"] = id,
@@ -59,4 +66,4 @@ function split (inputstr, sep)
    return t
 end
 
-main{...}
+loop{...}

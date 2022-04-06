@@ -6,7 +6,7 @@ function display.createDisplay(side)
   return display
 end
 
-function display.renderTableArray(table, headers)
+function display.renderTableArray(tables, headers)
 
   local monitor = peripheral.wrap("top")
     
