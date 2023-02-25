@@ -11,8 +11,8 @@ _headers = {
     },
     {
         ["key"] = "desc",
-        ["title"] = "Description",
-        ["width"] = 13
+        ["title"] = "Descrição",
+        ["width"] = 12
     },
     {
         ["key"] = "last_seen",
