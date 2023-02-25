@@ -16,6 +16,7 @@ function Monitor:clear()
 end
 
 function Monitor:writeLine(text, color)
+  color = color or colors.white
   self.peripheral.setTextColor(color)
   self.peripheral.write(text)
   self:jumpLine()
