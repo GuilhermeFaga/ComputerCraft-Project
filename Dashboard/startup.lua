@@ -24,13 +24,14 @@ mon:clear()
 while true do
     -- Data fetch
 
-    -- local craftingUnit = peripheral.wrap("ae2:crafting_unit_0").getCraftingCPUs()
+    -- local craftingUnit = peripheral.wrap("ae2:crafting_unit_0")
     local craftingCPUs = _craftingCPUs -- craftingUnit.getCraftingCPUs()
     local energy = _energy -- craftingUnit.getEnergy()
     local energyCapacity = _energyCapacity -- craftingUnit.getEnergyCapacity()
     local energyDemand = _energyDemand -- craftingUnit.getAverageEnergyDemand()
 
     -- END Data fetch
+    mon:clear()
 
     mon:writeLine("Energy Capacity")
     local energyPercentage = energyCapacity/energy
@@ -55,5 +56,4 @@ while true do
     end
 
     os.sleep(3)
-    mon:clear()
 end
