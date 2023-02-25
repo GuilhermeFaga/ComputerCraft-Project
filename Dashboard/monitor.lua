@@ -7,6 +7,7 @@ end)
 function Monitor:jumpLine()
   local _, y = self.peripheral.getCursorPos()
   self.peripheral.setCursorPos(1, y + 1)
+  self.peripheral.setTextColor(colors.white)
 end
 
 function Monitor:clear()
@@ -14,7 +15,8 @@ function Monitor:clear()
   self.peripheral.setCursorPos(1, 1)
 end
 
-function Monitor:writeLine(text)
+function Monitor:writeLine(text, color)
+  self.peripheral.setTextColor(color)
   self.peripheral.write(text)
   self:jumpLine()
 end
